@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import schoolLogo from './assets/kando.jpg'
-import './App.css'
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { DartsListPage } from "./pages/DartsListPage";
+import "./App.css";
 
-export const App = () => {
-  const [count, setCount] = useState(0)
-
+export function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://www.kkszki.hu" target="_blank"><img src={schoolLogo} alt="Iskola logó" width="200" /></a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          a számláló állása: {count}
-        </button>
-        <p>
-          Módosítsd az <code>src/App.jsx</code>-t és mentsd le, hogy tesztelhesd a HMR-t!
-        </p>
-      </div>
-      <p className="read-the-docs">
-         Kattints a React, a Kandó, vagy a Vite logókra, további információkért!
-      </p>
-    </>
-  )
-};
+    <BrowserRouter>
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <NavLink to="/" className="nav-link">
+                Dartsozók
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/new-darts" className="nav-link">
+                Új dartsozó
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<DartsListPage />} />
+       
+      </Routes>
+
+    </BrowserRouter>
+  );
+}
+
+export default App;
