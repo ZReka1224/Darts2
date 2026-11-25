@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { DartsListPage } from "./pages/DartsListPage";
 import { DartsSinglePage } from "./pages/DartsSinglePage";
 import { DartsCreatePage } from "./pages/DartsCreatePage";
+import { DartsModPage } from "./pages/DartsModPage";
 import "./App.css";
 
 export function App() {
@@ -28,7 +29,8 @@ export function App() {
         <Route path="/" element={<DartsListPage />} />
        <Route path="/darts/:dartsId" element={<DartsSinglePage />} />
         <Route path="/new-darts" element={<DartsCreatePage />} />
-        
+         <Route path="/mod-darts/:dartsId" element={<DartsModPage />} />
+      
       </Routes>
 
     </BrowserRouter>
